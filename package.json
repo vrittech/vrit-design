@@ -1,11 +1,12 @@
 {
   "name": "@shirish-vrit/vrit-design",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "release": "standard-version && git push --follow-tags && npm publish"
+    "release": "standard-version && git push --follow-tags && npm publish",
+    "test": "echo \"No tests specified\" && exit 0"
   },
   "publishConfig": {
     "@shirish-vrit:registry": "https://npm.pkg.github.com/"
