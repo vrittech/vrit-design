@@ -1,29 +1,22 @@
 {
-  "name": "@shirish-vrit/vrit-design",
-  "version": "1.0.5",
+  "name": "@shirish-vrit/designs",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "release": "standard-version && git push --follow-tags && npm publish",
-    "test": "echo \"No tests specified\" && exit 0"
-  },
-  "publishConfig": {
-    "access": "public"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "url": "https://github.com/shirish-vrit/vrit-design.git"
+    "type": "git",
+    "url": "git+https://github.com/vrittech/vrit-design.git"
   },
-  "keywords": [],
+  "publishConfig": {
+    "@shirishpokhrel:registry": "https://npm.pkg.github.com"
+  },
   "author": "shirishpokhrel",
   "license": "ISC",
-  "devDependencies": {
-    "@types/react": "^18.3.9",
-    "standard-version": "^9.5.0",
-    "typescript": "^5.6.2"
+  "bugs": {
+    "url": "https://github.com/vrittech/vrit-design/issues"
   },
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
-  }
+  "homepage": "https://github.com/vrittech/vrit-design#readme"
 }
