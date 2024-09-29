@@ -26,8 +26,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "publish": "npm run build && npm publish",
-    "semantic-release": "semantic-release"
+    "publish": "npm run build && npm publish"
   },
   "dependencies": {
     "react": "^18.3.1",
