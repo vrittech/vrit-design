@@ -16,6 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
+          registry-url: "https://registry.npmjs.org/"
           node-version: "lts/*" # Or your preferred Node version
           cache: "npm"
       - name: Clean npm cache
