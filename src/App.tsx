@@ -2,7 +2,7 @@ import { Button } from "../lib/Button/Button";
 function App() {
   return (
     <div>
-      <Button>Test</Button>
+      <Button>Test Buttons</Button>
     </div>
   );
 }
