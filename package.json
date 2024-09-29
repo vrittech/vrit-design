@@ -1,5 +1,5 @@
 {
-  "name": "vrit-design",
+  "name": "@vrittech/vrit-design",
   "version": "0.0.1",
   "type": "module",
   "files": [
@@ -19,7 +19,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "publish": "npm run build && npm publish"
+    "publish": "npm run build && npm publish",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -37,6 +38,7 @@
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
+    "semantic-release": "^24.1.2",
     "typescript": "^5.6.2",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1"
