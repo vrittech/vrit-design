@@ -1,0 +1,55 @@
+name: publish
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18" # Set to your project's Node.js version
+          cache: "npm"
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Build the library
+      - name: Build library
+        run: npm run build
+
+      # Publish to npm
+      - name: Publish to npm
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Tests
+        run: npm test
