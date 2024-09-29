@@ -30,6 +30,9 @@
     "type": "git",
     "url": "git+https://github.com/vrittech/vrit-design"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
     "@types/node": "^22.7.4",
