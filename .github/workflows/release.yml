@@ -6,7 +6,9 @@ on:
       - main
 
 permissions:
-  contents: read
+  contents: write
+  issues: write
+  pull-requests: write
   packages: write
   id-token: write
 
@@ -32,8 +34,13 @@ jobs:
       - name: Build the package
         run: npm run build
 
+      - name: Debug
+        run: |
+          echo "GITHUB_ACTOR: $GITHUB_ACTOR"
+          echo "GITHUB_TOKEN exists: ${{ secrets.GITHUB_TOKEN != '' }}"
+
       - name: Run semantic-release
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN  }}
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
