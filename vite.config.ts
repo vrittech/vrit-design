@@ -1,9 +1,8 @@
-import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { resolve } from "path";
-import dts from "vite-plugin-dts";
 import tailwindcss from "tailwindcss";
-import { libInjectCss } from "vite-plugin-lib-inject-css";
+import { defineConfig } from "vite";
+import dts from "vite-plugin-dts";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -26,7 +25,7 @@ export default defineConfig({
           react: "React",
           "react-dom": "ReactDOM",
           "react/jsx-runtime": "react/jsx-runtime",
-          tailwindcss: "tailwindcss",
+          // tailwindcss: "tailwindcss",
         },
       },
     },
@@ -37,7 +36,7 @@ export default defineConfig({
   plugins: [
     react(),
     dts({ rollupTypes: true, include: ["src"] }),
-    libInjectCss(),
+    // libInjectCss(),
   ],
   css: {
     postcss: {
