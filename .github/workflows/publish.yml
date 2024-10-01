@@ -1,4 +1,4 @@
-name: publish
+name: Publish to npm
 
 on:
   push:
@@ -12,19 +12,29 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
+          node-version: "lts/*"
           registry-url: "https://registry.npmjs.org/"
           scope: "@shirishpokhrel"
-          node-version: "lts/*" # Or your preferred Node version
           cache: "npm"
-      - name: Clean npm cache
-        run: npm cache clean --force
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "GitHub Actions"
 
       - name: Install dependencies
-        run: npm version patch && npm install
+        run: npm ci
+
+      - name: Bump version
+        run: |
+          npm version patch -m "Bump version to %s [skip ci]"
+          git push --follow-tags
 
       - name: Build library
         run: npm run build
