@@ -16,6 +16,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, "src/main.ts"),
       name: "vrit-design",
+      fileName: (format) => `vrit-design.${format}.js`,
     },
     rollupOptions: {
       external: ["react", "react-dom", "react/jsx-runtime", "tailwindcss"],
@@ -32,7 +33,11 @@ export default defineConfig({
     sourcemap: true,
     emptyOutDir: true,
   },
-  plugins: [react(), dts({ rollupTypes: true }), libInjectCss()],
+  plugins: [
+    react(),
+    dts({ rollupTypes: true, include: ["src"] }),
+    libInjectCss(),
+  ],
   css: {
     postcss: {
       plugins: [tailwindcss],

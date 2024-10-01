@@ -7,13 +7,13 @@
     "build": "tsc -b && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "prepublish": "npm version patch",
+    "prepublishOnly": "npm run build",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "main": "./dist/vrit-design.umd.js",
   "module": "./dist/vrit-design.es.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/main.d.ts",
   "files": [
     "dist"
   ],
@@ -21,7 +21,7 @@
     ".": {
       "import": "./dist/vrit-design.es.js",
       "require": "./dist/vrit-design.umd.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/main.d.ts"
     },
     "./dist/style.css": "./dist/style.css"
   },
