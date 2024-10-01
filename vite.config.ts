@@ -28,8 +28,10 @@ export default defineConfig({
           // tailwindcss: "tailwindcss",
         },
         assetFileNames: (assetInfo) => {
-          assetInfo.name = "style.css";
-          return assetInfo.name;
+          if (assetInfo.name === "style.css") {
+            return "main.css";
+          }
+          return assetInfo.name || "asset";
         },
       },
     },
