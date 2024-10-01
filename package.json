@@ -22,7 +22,8 @@
       "import": "./dist/vrit-design.es.js",
       "require": "./dist/vrit-design.umd.js",
       "types": "./dist/main.d.ts"
-    }
+    },
+    "./style.css": "./dist/vrit-design.css"
   },
   "peerDependencies": {
     "react": "^18.3.1",

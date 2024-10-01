@@ -32,6 +32,7 @@ export default defineConfig({
     },
     sourcemap: true,
     emptyOutDir: true,
+    cssCodeSplit: false,
   },
   plugins: [
     react(),
