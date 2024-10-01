@@ -27,6 +27,10 @@ export default defineConfig({
           "react/jsx-runtime": "react/jsx-runtime",
           // tailwindcss: "tailwindcss",
         },
+        assetFileNames: (assetInfo) => {
+          assetInfo.name = "style.css";
+          return assetInfo.name;
+        },
       },
     },
     sourcemap: true,
