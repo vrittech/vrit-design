@@ -23,7 +23,7 @@
       "require": "./dist/vrit-design.umd.js",
       "types": "./dist/main.d.ts"
     },
-    "./main.css": "./dist/main.css"
+    "./dist/style.css": "./dist/style.css"
   },
   "peerDependencies": {
     "react": "^18.3.1",

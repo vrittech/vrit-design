@@ -25,25 +25,14 @@ export default defineConfig({
           react: "React",
           "react-dom": "ReactDOM",
           "react/jsx-runtime": "react/jsx-runtime",
-          // tailwindcss: "tailwindcss",
-        },
-        assetFileNames: (assetInfo) => {
-          if (assetInfo.name === "style.css") {
-            return "main.css";
-          }
-          return assetInfo.name || "asset";
+          tailwindcss: "tailwindcss",
         },
       },
     },
     sourcemap: true,
     emptyOutDir: true,
-    cssCodeSplit: false,
   },
-  plugins: [
-    react(),
-    dts({ rollupTypes: true, include: ["src"] }),
-    // libInjectCss(),
-  ],
+  plugins: [react(), dts({ rollupTypes: true, include: ["src"] })],
   css: {
     postcss: {
       plugins: [tailwindcss],
