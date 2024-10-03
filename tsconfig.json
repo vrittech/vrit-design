@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ES2015",
+    "target": "ES2020",
     "useDefineForClassFields": true /* Emit ECMAScript-standard-compliant class fields. */,
     "lib": [
       "ES2020",
       "DOM",
       "DOM.Iterable"
     ] /* Specify a set of bundled library declaration files that describe the target runtime environment. */,
-    "module": "ES2015" /* Specify what module code is generated. */,
+    "module": "ES2020" /* Specify what module code is generated. */,
     "jsx": "react-jsx" /* Specify what JSX code is generated. */,
     "skipLibCheck": true /* Skip type checking all .d.ts files. */ /* Skip type checking .d.ts files that are included with TypeScript. */,
     "moduleResolution": "bundler" /* Specify how TypeScript looks up a file from a given module specifier. */,

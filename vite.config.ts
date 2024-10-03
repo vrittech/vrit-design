@@ -41,12 +41,15 @@ export default defineConfig({
     {
       name: "build-css",
       writeBundle: async () => {
-        const cssInput = '@import "./src/index.css";';
-        const result = await postcss([
-          tailwindcss("./tailwind.config.js"),
-          autoprefixer,
-        ]).process(cssInput, { from: undefined });
-        writeFileSync("./dist/index.css", result.css);
+        const postcss = await import("postcss");
+        const fs = await import("fs/promises");
+
+        const cssContent = await fs.readFile("./src/styles/index.css", "utf-8");
+        const result = await postcss
+          .default([tailwindcss("./tailwind.config.js"), autoprefixer])
+          .process(cssContent, { from: undefined });
+
+        await fs.writeFile("./dist/index.css", result.css);
       },
     },
   ],
