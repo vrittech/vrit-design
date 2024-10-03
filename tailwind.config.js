@@ -4,6 +4,7 @@ export default {
   content: [
     "./src/**/*.{js,ts,jsx,tsx}",
     "./src/**/*.stories.@(js|jsx|ts|tsx)",
+    "./components/**/*.{ts,tsx}",
   ],
   theme: {
     extend: {

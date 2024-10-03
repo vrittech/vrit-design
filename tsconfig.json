@@ -1,34 +1,33 @@
 {
   "compilerOptions": {
     "target": "ES2015",
+    "useDefineForClassFields": true /* Emit ECMAScript-standard-compliant class fields. */,
     "lib": [
       "ES2020",
       "DOM",
       "DOM.Iterable"
     ] /* Specify a set of bundled library declaration files that describe the target runtime environment. */,
-    "jsx": "react-jsx" /* Specify what JSX code is generated. */,
-    "useDefineForClassFields": true /* Emit ECMAScript-standard-compliant class fields. */,
     "module": "ES2015" /* Specify what module code is generated. */,
+    "jsx": "react-jsx" /* Specify what JSX code is generated. */,
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */ /* Skip type checking .d.ts files that are included with TypeScript. */,
     "moduleResolution": "bundler" /* Specify how TypeScript looks up a file from a given module specifier. */,
+    "allowImportingTsExtensions": true /* Allow imports to include TypeScript file extensions. Requires '--moduleResolution bundler' and either '--noEmit' or '--emitDeclarationOnly' to be set. */,
+    "resolveJsonModule": true /* Enable importing .json files. */,
+    "isolatedModules": true /* Ensure that each file can be safely transpiled without relying on other imports. */,
+    "noEmit": true /* Disable emitting files from a compilation. */,
     "baseUrl": "." /* Specify the base directory to resolve non-relative module names. */,
     "paths": {
-      "vrit-design": ["./src/main.ts"],
       "@/*": ["./src/*"]
     } /* Specify a set of entries that re-map imports to additional lookup locations. */,
     "declaration": true /* Generate .d.ts files from TypeScript and JavaScript files in your project. */,
-    "resolveJsonModule": true /* Enable importing .json files. */,
-    "allowImportingTsExtensions": true /* Allow imports to include TypeScript file extensions. Requires '--moduleResolution bundler' and either '--noEmit' or '--emitDeclarationOnly' to be set. */,
-    "noEmit": true /* Disable emitting files from a compilation. */,
     "outDir": "./dist" /* Specify an output folder for all emitted files. */,
     "declarationDir": "./dist/main.d.ts" /* Specify the output directory for generated declaration files. */,
-    "isolatedModules": true /* Ensure that each file can be safely transpiled without relying on other imports. */,
     "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */,
     "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
     "strict": true /* Enable all strict type-checking options. */,
     "noUnusedLocals": true /* Enable error reporting when local variables aren't read. */,
     "noUnusedParameters": true /* Raise an error when a function parameter isn't read. */,
-    "noFallthroughCasesInSwitch": true /* Enable error reporting for fallthrough cases in switch statements. */,
-    "skipLibCheck": true /* Skip type checking all .d.ts files. */ /* Skip type checking .d.ts files that are included with TypeScript. */
+    "noFallthroughCasesInSwitch": true /* Enable error reporting for fallthrough cases in switch statements. */
   },
   "include": ["src", "**/*.ts", "**/*.tsx", "tailwind.config.js", "**/*.cjs"]
 }

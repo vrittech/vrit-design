@@ -3,6 +3,9 @@ import { resolve } from "path";
 import tailwindcss from "tailwindcss";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
+import autoprefixer from "autoprefixer";
+import postcss from "postcss";
+import { writeFileSync } from "fs";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -32,7 +35,21 @@ export default defineConfig({
     sourcemap: true,
     emptyOutDir: true,
   },
-  plugins: [react(), dts({ rollupTypes: true, include: ["src"] })],
+  plugins: [
+    react(),
+    dts({ rollupTypes: true, include: ["src"] }),
+    {
+      name: "build-css",
+      writeBundle: async () => {
+        const cssInput = '@import "./src/index.css";';
+        const result = await postcss([
+          tailwindcss("./tailwind.config.js"),
+          autoprefixer,
+        ]).process(cssInput, { from: undefined });
+        writeFileSync("./dist/index.css", result.css);
+      },
+    },
+  ],
   css: {
     postcss: {
       plugins: [tailwindcss],
