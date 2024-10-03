@@ -42,7 +42,7 @@ export default defineConfig({
         const postcss = await import("postcss");
         const fs = await import("fs/promises");
 
-        const cssContent = await fs.readFile("./src/styles/index.css", "utf-8");
+        const cssContent = await fs.readFile("./src/index.css", "utf-8");
         const result = await postcss
           .default([tailwindcss("./tailwind.config.js"), autoprefixer])
           .process(cssContent, { from: undefined });
