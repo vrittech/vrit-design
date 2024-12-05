@@ -1,59 +1,21 @@
-import react from "@vitejs/plugin-react";
-import autoprefixer from "autoprefixer";
-import { resolve } from "path";
-import tailwindcss from "tailwindcss";
+/// <reference types="vitest" />
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
+import { peerDependencies } from "./package.json";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  resolve: {
-    alias: {
-      "@": resolve(__dirname, "./src"),
-    },
-  },
   build: {
     lib: {
-      entry: resolve(__dirname, "src/main.ts"),
-      name: "vrit-design",
-      fileName: (format) => `vrit-design.${format}.js`,
+      entry: "./src/index.ts", // Specifies the entry point for building the library.
+      name: "vite-react-ts-button", // Sets the name of the generated library.
+      fileName: (format) => `index.${format}.js`, // Generates the output file name based on the format.
+      formats: ["cjs", "es"], // Specifies the output formats (CommonJS and ES modules).
     },
     rollupOptions: {
-      external: ["react", "react-dom", "react/jsx-runtime", "tailwindcss"],
-
-      output: {
-        globals: {
-          react: "React",
-          "react-dom": "ReactDOM",
-          "react/jsx-runtime": "react/jsx-runtime",
-          tailwindcss: "tailwindcss",
-        },
-      },
+      external: [...Object.keys(peerDependencies)], // Defines external dependencies for Rollup bundling.
     },
-    sourcemap: true,
-    emptyOutDir: true,
+    sourcemap: true, // Generates source maps for debugging.
+    emptyOutDir: true, // Clears the output directory before building.
   },
-  plugins: [
-    react(),
-    dts({ rollupTypes: true, include: ["src"] }),
-    {
-      name: "build-css",
-      writeBundle: async () => {
-        const postcss = await import("postcss");
-        const fs = await import("fs/promises");
-
-        const cssContent = await fs.readFile("./src/index.css", "utf-8");
-        const result = await postcss
-          .default([tailwindcss("./tailwind.config.js"), autoprefixer])
-          .process(cssContent, { from: undefined });
-
-        await fs.writeFile("./dist/index.css", result.css);
-      },
-    },
-  ],
-  css: {
-    postcss: {
-      plugins: [tailwindcss],
-    },
-  },
+  plugins: [dts()], // Uses the 'vite-plugin-dts' plugin for generating TypeScript declaration files (d.ts).
 });
